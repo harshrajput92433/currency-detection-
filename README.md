@@ -1,8 +1,44 @@
 # currency-detection-
 AN AI DEEP LEARNING MODEL TO DETECT FAKE NOTES
-💵 README: Currency Note Detection ModelThis README provides a comprehensive description and guide for the Currency Note Detection Model.1. Project Description and Goal 🎯The Currency Note Detection Model is a specialized object detection system designed to automatically identify, locate, and classify different denominations and types of currency notes (banknotes) in images or real-time video streams.Key Objectives:Authentication: Help verify the presence of valid currency notes.Classification: Accurately determine the denomination (e.g., $1, $5, ₹10, ₹100) and the issuing country/series of the detected note.Location: Output precise bounding boxes around each detected note, even when notes are partially overlapping or crumpled.Core Technology:This model leverages advanced Convolutional Neural Network (CNN) architectures (such as YOLO or Faster R-CNN) trained on a large, diverse dataset of currency notes under various conditions (lighting, angle, partial occlusion).2. Prerequisites and Installation 💻To set up and run the model, you will need the following environment.Required Dependencies:Python: Version 3.8+Deep Learning Framework: TensorFlow 2.x or PyTorch (depending on the specific model implementation).Supporting Libraries: OpenCV, NumPy, and Matplotlib.Installation Steps:Clone the Repository:Bashgit clone [REPOSITORY_URL]
-cd currency-detection-model
-Install Dependencies:Bashpip install -r requirements.txt
-Download Model Weights:The pre-trained weights file (best_currency_detector.pt or similar) must be downloaded and placed in the designated weights/ directory. (Instructions for download will be provided separately, as these files are large.)3. Usage Guide 🚀The primary function of this project is running inference to detect currency notes.3.1. Running Inference (Detection)Use the detect.py script to process images or videos.Input Data: The model accepts single image files, a directory of images, or video files (.mp4, .avi).Command Syntax:Bashpython detect.py --weights weights/best_currency_detector.pt --source [INPUT_PATH] --conf 0.7
-Key Arguments:--weights: Path to the trained model weight file.--source: Path to the image, folder, or video you want to analyze.--conf: Confidence Threshold. Only detections with a score above this value will be displayed (default: 0.7).--save-dir: Directory where annotated output images/videos will be saved (default: runs/detect/currency/).3.2. Output FormatFor each detected note, the model outputs:Bounding Box Coordinates: $(x_1, y_1, x_2, y_2)$ defining the location of the note.Class Label: The identified denomination (e.g., USD_20, INR_500, EUR_5).Confidence Score ($P$): A value between $0$ and $1$ indicating the model's certainty.The output images will have the bounding box and label drawn directly on them.4. Technical Specifications ⚙️SpecificationDetailModel Architecture[YOLOv8s / Faster R-CNN ResNet-50] (Specify the actual architecture)Input Image Size$640 \times 640$ pixelsClasses Detected[List all specific classes, e.g., USD_1, USD_5, USD_10, EUR_50, etc.]Training Dataset[Name/Size of the dataset, e.g., Custom 20,000 image Currency Set]mAP Score (Validation)[Specify the performance metric, e.g., $95.2\%$ mAP@0.5]5. Customization and Retraining (Optional) 🛠️To adapt the model for a new currency or improve performance:Data Preparation: Create a new dataset of images for the target currency and label them according to the YOLO or COCO standard.Configuration: Update the data/currency.yaml file to include your new class names and point to your training/validation directories.Training Command:Bashpython train.py --img 640 --batch 16 --epochs 100 --data data/custom_currency.yaml --weights [Optional pre-trained weights]
-Would you like to know more about the specific data labeling tools used or the step-by-step process for integrating this model into an application?
+# 💵 Currency Detection and Recognition Model
+
+## 🌟 Overview
+
+This project implements a computer vision model (either an **Image Classifier** or an **Object Detector**) designed to accurately identify and recognize different denominations of a target currency from images.
+
+The primary goals of this model are:
+1. **Denomination Recognition:** Identifying the value (e.g., 10, 20, 100) of a banknote.
+2. **Real-time Detection:** Enabling quick and accurate recognition, potentially for use in mobile applications or automated counting systems.
+3. **Robustness:** Handling variations in angle, lighting, and minor wear/tear.
+
+## 📁 Dataset
+
+The model is trained on a custom dataset of currency images.
+
+| Feature | Detail |
+| :--- | :--- |
+| **Source** | Customly collected images (or specified public dataset like Banknote Authentication Data Set, if used) |
+| **Classes** | Each valid denomination (e.g., $10, $20, $50, $100) plus a background/invalid class (if using Object Detection). |
+| **Total Images** | [**INSERT YOUR TOTAL IMAGE COUNT HERE**] |
+| **Data Format** | JPEG/PNG images, often resized to uniform dimensions (e.g., $256 \times 256$ or $512 \times 512$). |
+
+**Data Note:** Data augmentation techniques (rotation, scaling, brightness adjustments) were heavily used to increase the model's robustness to real-world conditions.
+
+## ⚙️ Model Architecture
+
+The choice of architecture depends on the specific task:
+
+### Option 1: Image Classification (If classifying the entire image)
+* **Architecture:** ResNet50, MobileNetV2, or a custom CNN.
+* **Method:** The model takes a cropped image of a single banknote and outputs the denomination class.
+
+### Option 2: Object Detection (If localizing and classifying multiple banknotes)
+* **Architecture:** YOLOv5, SSD (Single Shot Detector), or Faster R-CNN.
+* **Method:** The model outputs bounding boxes around each detected banknote and assigns a denomination label to each box.
+
+## 💻 Dependencies
+
+To run this project, ensure you have a compatible Python environment and the following dependencies:
+
+```bash
+pip install tensorflow keras pandas numpy opencv-python Pillow [YOLO/PyTorch if using object detection]
