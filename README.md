@@ -1,0 +1,2 @@
+# currency-detection-
+AN AI DEEP LEARNING MODEL TO DETECT FAKE NOTES
