@@ -1,3 +1,15 @@
+<!-- Project Badges -->
+![Project](https://img.shields.io/badge/Project-Fake%20Currency%20Detection-blue)
+![DeepLearning](https://img.shields.io/badge/Deep%20Learning-CNN%20%7C%20EfficientNet-orange)
+![Dataset](https://img.shields.io/badge/Dataset-Kaggle-success)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Accuracy](https://img.shields.io/badge/Accuracy-100%25-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Mac-black)
+![Stars](https://img.shields.io/badge/Stars-★%20Star%20the%20Repo-yellow)
+![Forks](https://img.shields.io/badge/Forks-Contribute-blueviolet)
+[Project Guidelines (VIT BYOP PDF)](/mnt/data/BuildYourOwnProject.pdf)
+
 # Fake Currency Detection Using Deep Learning – Statement File
 
 ## Problem Statement
