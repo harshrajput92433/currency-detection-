@@ -8,7 +8,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Mac-black)
 ![Stars](https://img.shields.io/badge/Stars-★%20Star%20the%20Repo-yellow)
 ![Forks](https://img.shields.io/badge/Forks-Contribute-blueviolet)
-[Project Guidelines (VIT BYOP PDF)](/mnt/data/BuildYourOwnProject.pdf)
+[Project Guidelines (VIT BYOP PDF)](file:///C:/Users/aryar/Downloads/BuildYourOwnProject.pdf)
 
 # Fake Currency Detection Using Deep Learning – Statement File
 
