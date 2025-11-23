@@ -1,3 +1,14 @@
+<!-- Project Badges -->
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-DeepLearning-orange)
+![Keras](https://img.shields.io/badge/Keras-NeuralNetworks-red)
+![EfficientNet](https://img.shields.io/badge/Model-EfficientNetB0-yellowgreen)
+![Dataset](https://img.shields.io/badge/Dataset-Kaggle-blue)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Mac-black)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Accuracy](https://img.shields.io/badge/Accuracy-100%25-brightgreen)
+
 # Fake Currency Detection Using Deep Learning
 
 ## Project Title
