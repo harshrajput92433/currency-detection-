@@ -1,44 +1,91 @@
-# currency-detection-
-AN AI DEEP LEARNING MODEL TO DETECT FAKE NOTES
-# 💵 Currency Detection and Recognition Model
+# Fake Currency Detection Using Deep Learning
 
-## 🌟 Overview
+## Project Title
 
-This project implements a computer vision model (either an **Image Classifier** or an **Object Detector**) designed to accurately identify and recognize different denominations of a target currency from images.
+Fake Currency Detection Using Deep Learning
 
-The primary goals of this model are:
-1. **Denomination Recognition:** Identifying the value (e.g., 10, 20, 100) of a banknote.
-2. **Real-time Detection:** Enabling quick and accurate recognition, potentially for use in mobile applications or automated counting systems.
-3. **Robustness:** Handling variations in angle, lighting, and minor wear/tear.
+## Overview of the Project
 
-## 📁 Dataset
+This project is built to automatically determine whether a currency note is real or fake using a deep learning model. Fake currency is a common problem that affects people, shops, and banks. Traditional checking methods depend on humans or machines and are not always accurate. The purpose of this project is to create a simple, fast, and reliable system that can analyze an image of a currency note and tell if it is genuine or counterfeit. The model learns patterns such as texture, printing quality, watermark presence, and security marks through a dataset of real and fake note images collected from Kaggle.
 
-The model is trained on a custom dataset of currency images.
+## Features
 
-| Feature | Detail |
-| :--- | :--- |
-| **Source** | Customly collected images (or specified public dataset like Banknote Authentication Data Set, if used) |
-| **Classes** | Each valid denomination (e.g., $10, $20, $50, $100) plus a background/invalid class (if using Object Detection). |
-| **Total Images** | [**INSERT YOUR TOTAL IMAGE COUNT HERE**] |
-| **Data Format** | JPEG/PNG images, often resized to uniform dimensions (e.g., $256 \times 256$ or $512 \times 512$). |
+* Upload an image of a currency note to verify authenticity
+* Deep learning model predicts "Genuine" or "Counterfeit"
+* Displays confidence score for prediction accuracy
+* Runs efficiently and gives results within seconds
+* Can be integrated into mobile or ATM-based systems
+* Easy to use for real-time decision-making
 
-**Data Note:** Data augmentation techniques (rotation, scaling, brightness adjustments) were heavily used to increase the model's robustness to real-world conditions.
+## Technologies / Tools Used
 
-## ⚙️ Model Architecture
+* Python
+* TensorFlow / Keras
+* EfficientNetB0 + CNN
+* NumPy, Pandas
+* Albumentations for image augmentation
+* Matplotlib for visualization
 
-The choice of architecture depends on the specific task:
-
-### Option 1: Image Classification (If classifying the entire image)
-* **Architecture:** ResNet50, MobileNetV2, or a custom CNN.
-* **Method:** The model takes a cropped image of a single banknote and outputs the denomination class.
-
-### Option 2: Object Detection (If localizing and classifying multiple banknotes)
-* **Architecture:** YOLOv5, SSD (Single Shot Detector), or Faster R-CNN.
-* **Method:** The model outputs bounding boxes around each detected banknote and assigns a denomination label to each box.
-
-## 💻 Dependencies
-
-To run this project, ensure you have a compatible Python environment and the following dependencies:
+## Steps to Install & Run the Project
 
 ```bash
-pip install tensorflow keras pandas numpy opencv-python Pillow [YOLO/PyTorch if using object detection]
+# Clone the repository
+git clone https://github.com/yourusername/fake-currency-detection.git
+cd fake-currency-detection
+```
+
+```bash
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate       # Windows
+source venv/bin/activate    # Mac/Linux
+```
+
+```bash
+# Install required dependencies
+pip install -r requirements.txt
+```
+
+```bash
+# (Optional) Create dataset folders if needed
+mkdir data
+mkdir data/train data/val data/test
+```
+
+```bash
+# Train the model
+python train.py --data_dir ./data --epochs 30 --batch_size 32
+```
+
+```bash
+# Run inference prediction on a sample image
+python infer.py --image sample.jpg --weights best_model.h5
+```
+
+## Instructions for Testing
+
+1. Prepare a set of real and fake currency note images to test the model.
+2. Use the `infer.py` script and provide the image path.
+3. The program will print the predicted output:
+
+   * Genuine
+   * Counterfeit
+   * Confidence score (0 to 1)
+4. Test with different lighting conditions and backgrounds to evaluate robustness.
+
+```bash
+python infer.py --image ./test_images/note1.jpg --weights best_model.h5
+```
+
+### Example Output
+
+```
+Prediction: Genuine
+Confidence: 0.97
+```
+
+---
+
+This README is written in a simple and human-friendly format to help anyone understand and run the project easily. If needed, it can be extended with deployment instructions or real-time demo integration.
+
+Author: Harsh Rajput | B.Tech CSE | VIT Bhopal University
